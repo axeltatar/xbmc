@@ -545,7 +545,7 @@ bool CPluginDirectory::WaitOnScriptResult(const std::string &scriptPath, int scr
   return !m_cancelled && m_success;
 }
 
-void CPluginDirectory::SetResolvedUrl(int handle, bool success, const CFileItem *resultItem)
+void CPluginDirectory::SetResolvedUrl(int handle, bool success, CFileItem *resultItem)
 {
   CSingleLock lock(m_handleLock);
   CPluginDirectory *dir = dirFromHandle(handle);
@@ -553,7 +553,7 @@ void CPluginDirectory::SetResolvedUrl(int handle, bool success, const CFileItem 
     return;
 
   dir->m_success = success;
-  *dir->m_fileResult = *resultItem;
+  dir->m_fileResult = resultItem;
 
   // set the event to mark that we're done
   dir->m_fetchComplete.Set();

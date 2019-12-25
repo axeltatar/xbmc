@@ -65,7 +65,7 @@ public:
   static void SetSetting(int handle, const std::string &key, const std::string &value);
   static void SetContent(int handle, const std::string &strContent);
   static void SetProperty(int handle, const std::string &strProperty, const std::string &strValue);
-  static void SetResolvedUrl(int handle, bool success, const CFileItem* resultItem);
+  static void SetResolvedUrl(int handle, bool success, CFileItem* resultItem);
   static void SetLabel2(int handle, const std::string& ident);
 
 private:
